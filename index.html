@@ -59,6 +59,15 @@ body {
 header { padding: 20px 0 28px; border-bottom: 1px solid var(--c-border); margin-bottom: 28px; }
 .brand { display: flex; align-items: center; gap: 14px; font-family: var(--font-display); }
 .brand-mark {
+  background: linear-gradient(135deg, var(--c-cyan) 0%, var(--c-violet) 55%, var(--c-magenta) 100%);
+  box-shadow: 0 8px 32px -8px rgba(124, 58, 237, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.brand-mark:hover {
+  transform: translateY(-2px) rotate(-2deg);
+  box-shadow: 0 12px 40px -8px rgba(236, 72, 153, 0.6);
+}
+.brand-mark-IGNORE {
   width: 44px; height: 44px; border-radius: 10px;
   background: var(--grad-equity); display: grid; place-items: center;
   font-family: var(--font-mono); font-weight: 700; font-size: 22px; color: #0F0A1F;
@@ -82,10 +91,18 @@ h2 { font-family: var(--font-display); font-weight: 500; font-size: 20px; margin
 .muted { color: var(--c-muted); }
 .mono { font-family: var(--font-mono); }
 .small { font-size: 12px; }
-.card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 12px; padding: 18px 18px 14px; margin-bottom: 20px; }
+.card { transition: border-color 0.3s ease, transform 0.3s ease; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 12px; padding: 18px 18px 14px; margin-bottom: 20px; }
+.card:hover { border-color: var(--c-violet); transform: translateY(-1px); }
 .card h2 { margin-top: 0; font-size: 16px; letter-spacing: 0.02em; }
 .chart-wrap { position: relative; height: 280px; }
-@media (max-width: 600px) { .chart-wrap { height: 220px; } }
+@media (max-width: 600px) {
+  .chart-wrap { height: 220px; }
+  .kpi-value { font-size: 20px; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 17px; }
+  .container { padding: 16px; }
+  body { font-size: 13px; }
+}
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
 th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--c-border); }
 th { color: var(--c-muted); font-weight: 500; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
@@ -162,6 +179,27 @@ footer a:hover { text-decoration: underline; }
 </tbody></table></div>
 </div>
 
+<div class="card"><h2>Как это работает · 3 минуты чтения</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 12px;">
+  <div style="border-left: 3px solid var(--c-cyan); padding-left: 14px;">
+    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-cyan); letter-spacing: 0.06em; margin-bottom: 6px;">01 — DATA</div>
+    <strong>Live odds 24 лиг</strong><br>
+    <span class="muted">the-odds-api опрашивается каждые 4 часа. Tennis ATP/WTA, Soccer Top-5+UCL, NBA, NFL, NHL, MLB, MMA UFC, AFL, Euroleague — суммарно ~280 events на цикл.</span>
+  </div>
+  <div style="border-left: 3px solid var(--c-violet); padding-left: 14px;">
+    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-violet); letter-spacing: 0.06em; margin-bottom: 6px;">02 — FAIR LINE</div>
+    <strong>Median(3 sharps)</strong><br>
+    <span class="muted">Pinnacle + Betfair Exchange + Matchbook — три самых "острых" книги в мире. Берём медиану implied prob, нормализуем (убираем margin). Это наша истина.</span>
+  </div>
+  <div style="border-left: 3px solid var(--c-magenta); padding-left: 14px;">
+    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-magenta); letter-spacing: 0.06em; margin-bottom: 6px;">03 — VALUE</div>
+    <strong>Soft books vs sharp consensus</strong><br>
+    <span class="muted">1xBet, Marathon, William Hill, Fonbet — где они выставили коэф ВЫШЕ нашей fair line, считаем EV. Per-sport фильтры 3–5%. Размер ставки: ¼ Kelly, cap 1.5%.</span>
+  </div>
+</div>
+<p style="margin-top: 18px; color: var(--c-muted); font-size: 13px;">Главная метрика — <strong style="color: var(--c-text);">CLV</strong> (closing line value), не ROI. CLV &gt; +3% на 200+ ставках = модель бьёт рынок. ROI прыгает от удачи, CLV — нет.</p>
+</div>
+
 <div class="disclosure">
   <strong>Methodology.</strong> Fair line = median(Pinnacle, Betfair Exchange, Matchbook) с margin removal. Сигнал генерируется при <code>EV ∈ [3%, 40%]</code> и <code>k ∈ [1.30, 3.00]</code>. Sizing: <code>¼ Kelly</code>, cap <code>1.5%</code> bank. Tennis filter v1.5 — blacklist категорий <code>Masters 1000 / WTA 1000 / International / Tour Championships</code>.<br><br>
   <strong>Что значат цифры.</strong> <strong>CLV</strong> (closing line value) — насколько коэф на момент ставки выше закрывающего Pinnacle. Главная метрика: <code>CLV &gt; +3%</code> → стратегия бьёт рынок. <strong>ROI</strong> считается по ставке. <strong>Bank growth</strong> — рост unit-stake портфеля.<br><br>
@@ -175,7 +213,7 @@ footer a:hover { text-decoration: underline; }
 </div>
 
 <footer>
-  Σ Value Sniper · last update <span class="mono">2026-04-28 12:45 UTC</span>
+  Σ Value Sniper · last update <span class="mono">2026-04-28 14:32 UTC</span>
   · <a href="https://github.com/AlexWhiplash/value-sniper-public">github</a>
   · <a href="https://t.me/value_sniper_research">@value_sniper_research</a>
   · solo research by Александр (<a href="https://twitter.com/xgears3x3x">@xgears3x3x</a>)
