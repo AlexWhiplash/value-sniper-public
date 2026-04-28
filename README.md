@@ -1,5 +1,8 @@
-# Sigma Value Sniper - Public Track Record
+# Σ Value Sniper — Public Track Record
 
-Dashboard: https://alexwhiplash.github.io/value-sniper-public/
+Live dashboard: **[value-sniper.github.io](https://alexwhiplash.github.io/value-sniper-public/)**
 
-Auto-published every 6 hours from VPS. Source code, DB and methodology are in the main private repo.
+Auto-published каждые 6 часов с VPS. Source code, DB и methodology — в основном
+приватном repo (доступ только для validation review).
+
+— [@xgears3x3x](https://twitter.com/xgears3x3x) · solo research
