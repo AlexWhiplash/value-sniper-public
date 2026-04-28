@@ -143,20 +143,39 @@ footer a:hover { text-decoration: underline; }
 <tr><td colspan="7" class="muted">no settled bets yet</td></tr>
 </tbody></table></div></div>
 
+<div class="card"><h2>Multi-sport Elo stack · 9 sports validated</h2>
+<p style="color:#94A3B8;font-size:14px;margin:0 0 12px">
+  Brier score (lower = better; random binary = 0.250, random 3-way = 0.222)
+</p>
+<div class="scroll-x"><table>
+<thead><tr><th>Sport</th><th>Brier &darr;</th><th>Win acc</th><th>Games</th><th>Sharps</th></tr></thead>
+<tbody>
+<tr><td>&#127945; AFL</td><td><strong>0.201</strong></td><td>66.7%</td><td>1,701</td><td>3</td></tr>
+<tr><td>&#9917; Soccer EPL <em>(3-way)</em></td><td><strong>0.204</strong></td><td>50%</td><td>4,138</td><td>3</td></tr>
+<tr><td>&#127934; Tennis ATP/WTA</td><td>~0.21</td><td>~70%</td><td>51,436</td><td>3</td></tr>
+<tr><td>&#127936; NBA</td><td>0.228</td><td>64%</td><td>11,371</td><td>3</td></tr>
+<tr><td>&#127944; NFL</td><td>0.230</td><td>64%</td><td>3,028</td><td>3</td></tr>
+<tr><td>&#127954; NHL</td><td>0.239</td><td>59%</td><td>8,525</td><td>2</td></tr>
+<tr><td>&#9918; MLB</td><td>0.244</td><td>56%</td><td>25,633</td><td>2.2</td></tr>
+<tr><td>&#129354; MMA UFC</td><td>0.244</td><td>50%</td><td>8,573</td><td>3</td></tr>
+<tr><td>&#127936; Euroleague</td><td><em>live polling</em></td><td>—</td><td>—</td><td>3</td></tr>
+</tbody></table></div>
+</div>
+
 <div class="disclosure">
   <strong>Methodology.</strong> Fair line = median(Pinnacle, Betfair Exchange, Matchbook) с margin removal. Сигнал генерируется при <code>EV ∈ [3%, 40%]</code> и <code>k ∈ [1.30, 3.00]</code>. Sizing: <code>¼ Kelly</code>, cap <code>1.5%</code> bank. Tennis filter v1.5 — blacklist категорий <code>Masters 1000 / WTA 1000 / International / Tour Championships</code>.<br><br>
   <strong>Что значат цифры.</strong> <strong>CLV</strong> (closing line value) — насколько коэф на момент ставки выше закрывающего Pinnacle. Главная метрика: <code>CLV &gt; +3%</code> → стратегия бьёт рынок. <strong>ROI</strong> считается по ставке. <strong>Bank growth</strong> — рост unit-stake портфеля.<br><br>
   <strong>Что НЕ значат цифры.</strong> Это исследовательский paper-trading, не инвестиционный совет. Реальные деньги пойдут только после <code>200+ ставок с CLV &gt; +5%</code> на дистанции.<br><br>
   <span class="params">
-    <span class="param"><span class="param-key">filter</span>v1.5</span>
-    <span class="param"><span class="param-key">k_range</span>[1.30, 3.00]</span>
-    <span class="param"><span class="param-key">ev_range</span>[3%, 40%]</span>
+    <span class="param"><span class="param-key">filter</span>v1.7</span>
+    <span class="param"><span class="param-key">k_range</span>[1.30, 3.50]</span>
+    <span class="param"><span class="param-key">ev_range</span>[3-5%, 40%]</span><span class="param"><span class="param-key">sports</span>9 Elo + 24 leagues live</span>
     <span class="param"><span class="param-key">kelly</span>¼ · cap 1.5%</span>
   </span>
 </div>
 
 <footer>
-  Σ Value Sniper · last update <span class="mono">2026-04-28 09:41 UTC</span>
+  Σ Value Sniper · last update <span class="mono">2026-04-28 11:33 UTC</span>
   · <a href="https://github.com/AlexWhiplash/value-sniper-public">github</a>
   · <a href="https://t.me/value_sniper_research">@value_sniper_research</a>
   · solo research by Александр (<a href="https://twitter.com/xgears3x3x">@xgears3x3x</a>)
