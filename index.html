@@ -4,26 +4,41 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0F0A1F">
-<meta name="description" content="Σ Value Sniper — public track record. Median sharps fair line, EV+ filter, ¼ Kelly stake, paper trading transparency.">
+<meta name="description" content="Quant value-betting research. Median sharps fair line, EV+ filter, ¼ Kelly. Settled bets с задержкой 24h. Open code + методология.">
 <title>Σ Value Sniper — Public Track Record</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexwhiplash.github.io/value-sniper-public/">
+<meta property="og:site_name" content="Σ Value Sniper">
+<meta property="og:title" content="Σ Value Sniper — Public Track Record">
+<meta property="og:description" content="Quant value-betting research. Median sharps fair line, EV+ filter, ¼ Kelly. Settled bets с задержкой 24h. Open code + методология.">
+<meta property="og:image" content="https://alexwhiplash.github.io/value-sniper-public/assets/og-image.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Σ Value Sniper logo">
+<meta property="og:locale" content="ru_RU">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@xgears3x3x">
+<meta name="twitter:creator" content="@xgears3x3x">
+<meta name="twitter:title" content="Σ Value Sniper — Public Track Record">
+<meta name="twitter:description" content="Quant value-betting research. Median sharps fair line, EV+ filter, ¼ Kelly. Settled bets с задержкой 24h. Open code + методология.">
+<meta name="twitter:image" content="https://alexwhiplash.github.io/value-sniper-public/assets/og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root {
-  --c-bg: #0F0A1F;
-  --c-surface: #1A1530;
-  --c-surface-2: #221A3A;
-  --c-border: #2D2547;
-  --c-cyan: #22D3EE;
-  --c-violet: #7C3AED;
-  --c-magenta: #EC4899;
-  --c-success: #10B981;
-  --c-warning: #F59E0B;
-  --c-text: #FAFAFC;
-  --c-muted: #94A3B8;
-  --c-code: #A78BFA;
+  --c-bg: #0F0A1F; --c-surface: #1A1530; --c-surface-2: #221A3A; --c-border: #2D2547;
+  --c-cyan: #22D3EE; --c-violet: #7C3AED; --c-magenta: #EC4899;
+  --c-success: #10B981; --c-warning: #F59E0B;
+  --c-text: #FAFAFC; --c-muted: #94A3B8; --c-code: #A78BFA;
   --grad-equity: linear-gradient(135deg, #22D3EE 0%, #7C3AED 55%, #EC4899 100%);
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -32,11 +47,8 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
-  background: var(--c-bg);
-  color: var(--c-text);
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.55;
+  background: var(--c-bg); color: var(--c-text);
+  font-family: var(--font-body); font-size: 14px; line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   background-image:
     radial-gradient(circle at 15% 10%, rgba(124,58,237,0.10), transparent 40%),
@@ -48,20 +60,16 @@ header { padding: 20px 0 28px; border-bottom: 1px solid var(--c-border); margin-
 .brand { display: flex; align-items: center; gap: 14px; font-family: var(--font-display); }
 .brand-mark {
   width: 44px; height: 44px; border-radius: 10px;
-  background: var(--grad-equity);
-  display: grid; place-items: center;
-  font-family: var(--font-mono); font-weight: 700;
-  font-size: 22px; color: #0F0A1F;
+  background: var(--grad-equity); display: grid; place-items: center;
+  font-family: var(--font-mono); font-weight: 700; font-size: 22px; color: #0F0A1F;
   box-shadow: 0 0 32px rgba(34,211,238,0.20);
 }
 .brand-text { display: flex; flex-direction: column; }
 .brand-name { font-size: 18px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
 .brand-tagline { font-size: 12px; color: var(--c-muted); letter-spacing: 0.04em; }
-
 h1 { font-family: var(--font-display); font-weight: 500; font-size: 28px; margin: 24px 0 8px; letter-spacing: -0.02em; }
 h2 { font-family: var(--font-display); font-weight: 500; font-size: 20px; margin: 36px 0 14px; letter-spacing: -0.01em; }
 .subtitle { color: var(--c-muted); font-size: 14px; margin-bottom: 28px; }
-
 .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 28px; }
 .kpi { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 12px; padding: 16px 18px; position: relative; overflow: hidden; }
 .kpi::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--grad-equity); opacity: 0.6; }
@@ -74,13 +82,10 @@ h2 { font-family: var(--font-display); font-weight: 500; font-size: 20px; margin
 .muted { color: var(--c-muted); }
 .mono { font-family: var(--font-mono); }
 .small { font-size: 12px; }
-
 .card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 12px; padding: 18px 18px 14px; margin-bottom: 20px; }
 .card h2 { margin-top: 0; font-size: 16px; letter-spacing: 0.02em; }
-
 .chart-wrap { position: relative; height: 280px; }
 @media (max-width: 600px) { .chart-wrap { height: 220px; } }
-
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
 th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--c-border); }
 th { color: var(--c-muted); font-weight: 500; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
@@ -89,25 +94,20 @@ tr:last-child td { border-bottom: none; }
 .badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-family: var(--font-mono); font-weight: 700; font-size: 11px; background: var(--c-surface-2); }
 .badge.pos { background: rgba(16,185,129,0.15); }
 .badge.neg { background: rgba(236,72,153,0.15); }
-
 .disclosure { background: var(--c-surface-2); border: 1px solid var(--c-border); border-left: 3px solid var(--c-violet); border-radius: 8px; padding: 14px 16px; font-size: 13px; color: var(--c-muted); margin: 24px 0; }
 .disclosure strong { color: var(--c-text); }
 .disclosure code { font-family: var(--font-mono); color: var(--c-code); font-size: 12px; }
-
 footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--c-border); font-size: 12px; color: var(--c-muted); text-align: center; }
 footer a { color: var(--c-cyan); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
-
 .params { display: flex; flex-wrap: wrap; gap: 10px; font-family: var(--font-mono); font-size: 12px; }
 .param { background: var(--c-surface-2); border: 1px solid var(--c-border); border-radius: 6px; padding: 4px 10px; color: var(--c-code); }
 .param-key { color: var(--c-muted); margin-right: 4px; }
-
 .scroll-x { overflow-x: auto; }
 </style>
 </head>
 <body>
 <div class="container">
-
 <header>
   <div class="brand">
     <div class="brand-mark">Σ</div>
@@ -119,94 +119,34 @@ footer a:hover { text-decoration: underline; }
 </header>
 
 <h1>Public track record</h1>
-<p class="subtitle">
-  Прозрачный лог paper-trading сигналов. Все ставки публикуются с задержкой
-  <strong>24h</strong> после settlement, чтобы не утечь активные сигналы.
-</p>
+<p class="subtitle">Прозрачный лог paper-trading сигналов. Все ставки публикуются с задержкой <strong>24h</strong> после settlement, чтобы не утечь активные сигналы.</p>
 
 <div class="kpi-grid">
-  <div class="kpi">
-    <div class="kpi-label">Settled bets</div>
-    <div class="kpi-value">0</div>
-    <div class="kpi-sub">paper + shadow</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-label">Avg CLV</div>
-    <div class="kpi-value pos">—</div>
-    <div class="kpi-sub">⚠ below threshold</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-label">ROI per stake</div>
-    <div class="kpi-value pos">—</div>
-    <div class="kpi-sub">P/L: +0 ₽</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-label">Win rate</div>
-    <div class="kpi-value">—</div>
-    <div class="kpi-sub">0 wins / 0 bets</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-label">Positive CLV rate</div>
-    <div class="kpi-value">—</div>
-    <div class="kpi-sub">value-detection accuracy</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-label">Bank growth</div>
-    <div class="kpi-value">1.000 → 1.000</div>
-    <div class="kpi-sub">unit stake compounding</div>
-  </div>
+  <div class="kpi"><div class="kpi-label">Settled bets</div><div class="kpi-value">0</div><div class="kpi-sub">paper + shadow</div></div>
+  <div class="kpi"><div class="kpi-label">Avg CLV</div><div class="kpi-value pos">—</div><div class="kpi-sub">⚠ below threshold</div></div>
+  <div class="kpi"><div class="kpi-label">ROI per stake</div><div class="kpi-value pos">—</div><div class="kpi-sub">P/L: +0 ₽</div></div>
+  <div class="kpi"><div class="kpi-label">Win rate</div><div class="kpi-value">—</div><div class="kpi-sub">0 wins / 0 bets</div></div>
+  <div class="kpi"><div class="kpi-label">Positive CLV rate</div><div class="kpi-value">—</div><div class="kpi-sub">value-detection accuracy</div></div>
+  <div class="kpi"><div class="kpi-label">Bank growth</div><div class="kpi-value">1.000 → 1.000</div><div class="kpi-sub">unit stake compounding</div></div>
 </div>
 
-<div class="card">
-  <h2>Equity curve · cumulative P/L (₽)</h2>
-  <div class="chart-wrap"><canvas id="equityChart"></canvas></div>
-</div>
-
-<div class="card">
-  <h2>Monthly ROI</h2>
-  <div class="chart-wrap"><canvas id="monthlyChart"></canvas></div>
-</div>
-
-<div class="card">
-  <h2>Sport breakdown</h2>
-  <div class="scroll-x">
-    <table>
-      <thead><tr><th>Sport</th><th>n</th><th>WR</th><th>ROI</th><th>avg CLV</th></tr></thead>
-      <tbody>
+<div class="card"><h2>Equity curve · cumulative P/L (₽)</h2><div class="chart-wrap"><canvas id="equityChart"></canvas></div></div>
+<div class="card"><h2>Monthly ROI</h2><div class="chart-wrap"><canvas id="monthlyChart"></canvas></div></div>
+<div class="card"><h2>Sport breakdown</h2><div class="scroll-x"><table>
+<thead><tr><th>Sport</th><th>n</th><th>WR</th><th>ROI</th><th>avg CLV</th></tr></thead>
+<tbody>
 <tr><td colspan="5" class="muted">no data yet</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="card">
-  <h2>Recent settled bets · last 50</h2>
-  <div class="scroll-x">
-    <table>
-      <thead><tr><th>Date</th><th></th><th>Event</th><th>Side</th><th>Odds</th><th>CLV</th><th>·</th></tr></thead>
-      <tbody>
+</tbody></table></div></div>
+<div class="card"><h2>Recent settled bets · last 50</h2><div class="scroll-x"><table>
+<thead><tr><th>Date</th><th></th><th>Event</th><th>Side</th><th>Odds</th><th>CLV</th><th>·</th></tr></thead>
+<tbody>
 <tr><td colspan="7" class="muted">no settled bets yet</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+</tbody></table></div></div>
 
 <div class="disclosure">
-  <strong>Methodology.</strong>
-  Fair line = median(Pinnacle, Betfair Exchange, Matchbook) с margin removal. Сигнал генерируется
-  при <code>EV ∈ [3%, 40%]</code> и <code>k ∈ [1.30, 3.00]</code>. Sizing: <code>¼ Kelly</code>,
-  cap <code>1.5%</code> bank. Tennis filter v1.5 — blacklist категорий
-  <code>Masters 1000 / WTA 1000 / International / Tour Championships</code>.
-  <br><br>
-  <strong>Что значат цифры.</strong>
-  <strong>CLV</strong> (closing line value) — насколько коэф на момент ставки выше закрывающего
-  Pinnacle. Главная метрика: <code>CLV &gt; +3%</code> → стратегия бьёт рынок. <strong>ROI</strong>
-  считается по ставке (не по банку). <strong>Bank growth</strong> — рост unit-stake портфеля.
-  <br><br>
-  <strong>Что НЕ значат цифры.</strong>
-  Это исследовательский paper-trading, не инвестиционный совет. Реальные деньги пойдут
-  только после <code>200+ ставок с CLV &gt; +5%</code> на дистанции.
-  <br><br>
+  <strong>Methodology.</strong> Fair line = median(Pinnacle, Betfair Exchange, Matchbook) с margin removal. Сигнал генерируется при <code>EV ∈ [3%, 40%]</code> и <code>k ∈ [1.30, 3.00]</code>. Sizing: <code>¼ Kelly</code>, cap <code>1.5%</code> bank. Tennis filter v1.5 — blacklist категорий <code>Masters 1000 / WTA 1000 / International / Tour Championships</code>.<br><br>
+  <strong>Что значат цифры.</strong> <strong>CLV</strong> (closing line value) — насколько коэф на момент ставки выше закрывающего Pinnacle. Главная метрика: <code>CLV &gt; +3%</code> → стратегия бьёт рынок. <strong>ROI</strong> считается по ставке. <strong>Bank growth</strong> — рост unit-stake портфеля.<br><br>
+  <strong>Что НЕ значат цифры.</strong> Это исследовательский paper-trading, не инвестиционный совет. Реальные деньги пойдут только после <code>200+ ставок с CLV &gt; +5%</code> на дистанции.<br><br>
   <span class="params">
     <span class="param"><span class="param-key">filter</span>v1.5</span>
     <span class="param"><span class="param-key">k_range</span>[1.30, 3.00]</span>
@@ -216,12 +156,13 @@ footer a:hover { text-decoration: underline; }
 </div>
 
 <footer>
-  Σ Value Sniper · last update <span class="mono">2026-04-28 07:15 UTC</span>
-  · <a href="https://github.com/AlexWhiplash/value-sniper">github</a>
-  · solo research project by Александр (<a href="https://twitter.com/xgears3x3x">@xgears3x3x</a>)
+  Σ Value Sniper · last update <span class="mono">2026-04-28 09:34 UTC</span>
+  · <a href="https://github.com/AlexWhiplash/value-sniper-public">github</a>
+  · <a href="https://t.me/value_sniper_research">@value_sniper_research</a>
+  · solo research by Александр (<a href="https://twitter.com/xgears3x3x">@xgears3x3x</a>)
 </footer>
-
 </div>
+
 <script>
 const equityData = [];
 const monthlyData = [];
@@ -235,24 +176,18 @@ if (equityData.length > 0) {
   grad.addColorStop(1, 'rgba(34,211,238,0.00)');
   new Chart(ctx, {
     type: 'line',
-    data: {
-      labels: equityData.map(p => p.x),
-      datasets: [{
-        label: 'Cumulative P/L (₽)',
-        data: equityData.map(p => p.y),
-        borderColor: '#22D3EE',
-        backgroundColor: grad,
-        fill: true, borderWidth: 2, tension: 0.25,
-        pointRadius: 0, pointHoverRadius: 4,
-        pointHoverBackgroundColor: '#EC4899',
-      }]
-    },
+    data: { labels: equityData.map(p => p.x), datasets: [{
+      label: 'Cumulative P/L (₽)', data: equityData.map(p => p.y),
+      borderColor: '#22D3EE', backgroundColor: grad, fill: true,
+      borderWidth: 2, tension: 0.25, pointRadius: 0, pointHoverRadius: 4,
+      pointHoverBackgroundColor: '#EC4899'
+    }] },
     options: {
       responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: {
         x: { grid: { color: baseGrid }, ticks: { color: baseText, maxTicksLimit: 8 } },
-        y: { grid: { color: baseGrid }, ticks: { color: baseText } },
+        y: { grid: { color: baseGrid }, ticks: { color: baseText } }
       }
     }
   });
@@ -269,21 +204,17 @@ if (monthlyData.length > 0) {
   const ctxM = document.getElementById('monthlyChart').getContext('2d');
   new Chart(ctxM, {
     type: 'bar',
-    data: {
-      labels: monthlyData.map(d => d.month),
-      datasets: [{
-        label: 'ROI %',
-        data: monthlyData.map(d => d.roi),
-        backgroundColor: monthlyData.map(d => d.roi >= 0 ? '#22D3EE' : '#EC4899'),
-        borderRadius: 6, borderSkipped: false,
-      }]
-    },
+    data: { labels: monthlyData.map(d => d.month), datasets: [{
+      label: 'ROI %', data: monthlyData.map(d => d.roi),
+      backgroundColor: monthlyData.map(d => d.roi >= 0 ? '#22D3EE' : '#EC4899'),
+      borderRadius: 6, borderSkipped: false
+    }] },
     options: {
       responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: {
         x: { grid: { color: baseGrid }, ticks: { color: baseText } },
-        y: { grid: { color: baseGrid }, ticks: { color: baseText, callback: v => v + '%' } },
+        y: { grid: { color: baseGrid }, ticks: { color: baseText, callback: v => v + '%' } }
       }
     }
   });
