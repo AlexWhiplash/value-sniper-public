@@ -120,42 +120,50 @@ footer a:hover { text-decoration: underline; }
 .params { display: flex; flex-wrap: wrap; gap: 10px; font-family: var(--font-mono); font-size: 12px; }
 .param { background: var(--c-surface-2); border: 1px solid var(--c-border); border-radius: 6px; padding: 4px 10px; color: var(--c-code); }
 .param-key { color: var(--c-muted); margin-right: 4px; }
+.lang-switch { display: flex; gap: 4px; border: 1px solid var(--c-border); border-radius: 8px; padding: 3px; background: var(--c-surface); }
+.lang-btn { background: transparent; border: 0; color: var(--c-muted); font-family: var(--font-mono); font-weight: 700; font-size: 12px; padding: 6px 12px; border-radius: 6px; cursor: pointer; letter-spacing: 0.06em; transition: all 0.15s; }
+.lang-btn:hover { color: var(--c-text); }
+.lang-btn.active { background: var(--c-surface-2); color: var(--c-cyan); }
 .scroll-x { overflow-x: auto; }
 </style>
 </head>
 <body>
 <div class="container">
-<header>
+<header style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap">
   <div class="brand">
     <div class="brand-mark">Σ</div>
     <div class="brand-text">
       <div class="brand-name">Value Sniper</div>
-      <div class="brand-tagline">Quant-driven cross-sport value betting · public track record</div>
+      <div class="brand-tagline" data-i18n="brand.tagline">Quant-driven cross-sport value betting · public track record</div>
     </div>
+  </div>
+  <div class="lang-switch" role="tablist" aria-label="Language">
+    <button class="lang-btn" data-lang="ru" type="button">RU</button>
+    <button class="lang-btn" data-lang="en" type="button">EN</button>
   </div>
 </header>
 
-<h1>Public track record</h1>
-<p class="subtitle">Прозрачный лог paper-trading сигналов. Все ставки публикуются с задержкой <strong>24h</strong> после settlement, чтобы не утечь активные сигналы.</p>
+<h1 data-i18n="page.title">Public track record</h1>
+<p class="subtitle" data-i18n="page.subtitle" data-i18n-html="1">Прозрачный лог paper-trading сигналов. Все ставки публикуются с задержкой <strong>24h</strong> после settlement, чтобы не утечь активные сигналы.</p>
 
 <div class="kpi-grid">
-  <div class="kpi"><div class="kpi-label">Settled bets</div><div class="kpi-value">4</div><div class="kpi-sub">paper + shadow</div></div>
-  <div class="kpi"><div class="kpi-label">Avg CLV</div><div class="kpi-value pos">+35.92%</div><div class="kpi-sub">✓ above stop</div></div>
-  <div class="kpi"><div class="kpi-label">ROI per stake</div><div class="kpi-value pos">+20.38%</div><div class="kpi-sub">P/L: +91 ₽</div></div>
-  <div class="kpi"><div class="kpi-label">Win rate</div><div class="kpi-value">25.0%</div><div class="kpi-sub">1 wins / 4 bets</div></div>
-  <div class="kpi"><div class="kpi-label">Positive CLV rate</div><div class="kpi-value">100.0%</div><div class="kpi-sub">value-detection accuracy</div></div>
-  <div class="kpi"><div class="kpi-label">Bank growth</div><div class="kpi-value">1.000 → 1.204</div><div class="kpi-sub">unit stake compounding</div></div>
+  <div class="kpi"><div class="kpi-label" data-i18n="kpi.settled">Settled bets</div><div class="kpi-value">4</div><div class="kpi-sub" data-i18n="kpi.settled_sub">paper + shadow</div></div>
+  <div class="kpi"><div class="kpi-label" data-i18n="kpi.clv">Avg CLV</div><div class="kpi-value pos">+35.92%</div><div class="kpi-sub">✓ above stop</div></div>
+  <div class="kpi"><div class="kpi-label" data-i18n="kpi.roi">ROI per stake</div><div class="kpi-value pos">+20.38%</div><div class="kpi-sub">P/L: +91 ₽</div></div>
+  <div class="kpi"><div class="kpi-label" data-i18n="kpi.wr">Win rate</div><div class="kpi-value">25.0%</div><div class="kpi-sub">1 wins / 4 bets</div></div>
+  <div class="kpi"><div class="kpi-label" data-i18n="kpi.posclv">Positive CLV rate</div><div class="kpi-value">100.0%</div><div class="kpi-sub" data-i18n="kpi.posclv_sub">value-detection accuracy</div></div>
+  <div class="kpi"><div class="kpi-label" data-i18n="kpi.bank">Bank growth</div><div class="kpi-value">1.000 → 1.204</div><div class="kpi-sub" data-i18n="kpi.bank_sub">unit stake compounding</div></div>
 </div>
 
-<div class="card"><h2>Equity curve · cumulative P/L (₽)</h2><div class="chart-wrap"><canvas id="equityChart"></canvas></div></div>
-<div class="card"><h2>Monthly ROI</h2><div class="chart-wrap"><canvas id="monthlyChart"></canvas></div></div>
-<div class="card"><h2>Sport breakdown</h2><div class="scroll-x"><table>
+<div class="card"><h2 data-i18n="card.equity">Equity curve · cumulative P/L (₽)</h2><div class="chart-wrap"><canvas id="equityChart"></canvas></div></div>
+<div class="card"><h2 data-i18n="card.monthly">Monthly ROI</h2><div class="chart-wrap"><canvas id="monthlyChart"></canvas></div></div>
+<div class="card"><h2 data-i18n="card.sport">Sport breakdown</h2><div class="scroll-x"><table>
 <thead><tr><th>Sport</th><th>n</th><th>WR</th><th>ROI</th><th>avg CLV</th></tr></thead>
 <tbody>
 <tr><td>🎾 WTA Tennis</td><td>3</td><td>0.0%</td><td class="neg">-100.00%</td><td class="pos">—</td></tr>
 <tr><td>🎾 ATP Tennis</td><td>1</td><td>100.0%</td><td class="pos">+93.00%</td><td class="pos">+35.92%</td></tr>
 </tbody></table></div></div>
-<div class="card"><h2>Recent settled bets · last 50</h2><div class="scroll-x"><table>
+<div class="card"><h2 data-i18n="card.recent" data-i18n-html="1">Recent settled bets · last 50</h2><div class="scroll-x"><table>
 <thead><tr><th>Date</th><th></th><th>Event</th><th>Side</th><th>Odds</th><th>CLV</th><th>·</th></tr></thead>
 <tbody>
 <tr><td class="muted small">2026-04-29</td><td>🎾</td><td class="event">Leylah Fernandez vs Mirra Andreeva</td><td>HOME</td><td class="mono">2.90</td><td class="mono pos">—</td><td class="badge neg">L</td></tr>
@@ -164,7 +172,7 @@ footer a:hover { text-decoration: underline; }
 <tr><td class="muted small">2026-04-27</td><td>🎾</td><td class="event">Stefanos Tsitsipas vs Daniel Merida Aguilar</td><td>HOME</td><td class="mono">1.93</td><td class="mono pos">+35.92%</td><td class="badge pos">W</td></tr>
 </tbody></table></div></div>
 
-<div class="card"><h2>Σ Pulse · live на каналах</h2>
+<div class="card"><h2 data-i18n="card.pulse">Σ Pulse · live на каналах</h2>
 <p style="color:#94A3B8;font-size:14px;margin:0 0 14px">
   5 авто-рубрик публикуются в Telegram + Bluesky. Каждый пост — с inline-реакциями 🔥 / 📊 / 👀.
 </p>
@@ -187,7 +195,7 @@ footer a:hover { text-decoration: underline; }
 </p>
 </div>
 
-<div class="card"><h2>Multi-sport Elo stack · 9 sports validated</h2>
+<div class="card"><h2 data-i18n="card.stack">Multi-sport Elo stack · 9 sports validated</h2>
 <p style="color:#94A3B8;font-size:14px;margin:0 0 12px">
   Brier score (lower = better; random binary = 0.250, random 3-way = 0.222)
 </p>
@@ -206,7 +214,7 @@ footer a:hover { text-decoration: underline; }
 </tbody></table></div>
 </div>
 
-<div class="card"><h2>Как это работает · 3 минуты чтения</h2>
+<div class="card"><h2 data-i18n="card.how">Как это работает · 3 минуты чтения</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 12px;">
   <div style="border-left: 3px solid var(--c-cyan); padding-left: 14px;">
     <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-cyan); letter-spacing: 0.06em; margin-bottom: 6px;">01 — DATA</div>
@@ -227,7 +235,7 @@ footer a:hover { text-decoration: underline; }
 <p style="margin-top: 18px; color: var(--c-muted); font-size: 13px;">Главная метрика — <strong style="color: var(--c-text);">CLV</strong> (closing line value), не ROI. CLV &gt; +3% на 200+ ставках = модель бьёт рынок. ROI прыгает от удачи, CLV — нет.</p>
 </div>
 
-<div class="disclosure">
+<div class="disclosure" data-i18n="disclosure" data-i18n-html="1">
   <strong>Methodology.</strong> Fair line = median(Pinnacle, Betfair Exchange, Matchbook) с margin removal. Сигнал генерируется при <code>EV ∈ [3%, 40%]</code> и <code>k ∈ [1.30, 3.00]</code>. Sizing: <code>¼ Kelly</code>, cap <code>1.5%</code> bank. Tennis filter v1.5 — blacklist категорий <code>Masters 1000 / WTA 1000 / International / Tour Championships</code>.<br><br>
   <strong>Что значат цифры.</strong> <strong>CLV</strong> (closing line value) — насколько коэф на момент ставки выше закрывающего Pinnacle. Главная метрика: <code>CLV &gt; +3%</code> → стратегия бьёт рынок. <strong>ROI</strong> считается по ставке. <strong>Bank growth</strong> — рост unit-stake портфеля.<br><br>
   <strong>Что НЕ значат цифры.</strong> Это исследовательский paper-trading, не инвестиционный совет. Реальные деньги пойдут только после <code>200+ ставок с CLV &gt; +5%</code> на дистанции.<br><br>
@@ -240,7 +248,7 @@ footer a:hover { text-decoration: underline; }
 </div>
 
 <footer>
-  Σ Value Sniper · last update <span class="mono">2026-05-01 00:45 UTC</span>
+  Σ Value Sniper · last update <span class="mono">2026-05-01 04:24 UTC</span>
   · <a href="https://github.com/AlexWhiplash/value-sniper-public">github</a>
   · <a href="https://t.me/value_sniper_research">@value_sniper_research</a>
   · solo research by Александр (<a href="https://twitter.com/xgears3x3x">@xgears3x3x</a>)
@@ -310,6 +318,79 @@ if (monthlyData.length > 0) {
     })
   );
 }
+</script>
+<script>
+const I18N = {
+  ru: {
+    "brand.tagline": "Quant-стратегия value-беттинга · публичный трек-рекорд",
+    "page.title": "Публичный трек-рекорд",
+    "page.subtitle": "Прозрачный лог paper-trading сигналов. Все ставки публикуются с задержкой <strong>24h</strong> после settlement, чтобы не утечь активные сигналы.",
+    "kpi.settled": "Settled ставки",
+    "kpi.settled_sub": "paper + shadow",
+    "kpi.clv": "Средний CLV",
+    "kpi.roi": "ROI на ставку",
+    "kpi.wr": "Win rate",
+    "kpi.posclv": "Positive CLV rate",
+    "kpi.posclv_sub": "точность value-detection",
+    "kpi.bank": "Рост банка",
+    "kpi.bank_sub": "unit-stake compounding",
+    "card.equity": "Кривая equity · накопл. P/L (₽)",
+    "card.monthly": "ROI по месяцам",
+    "card.sport": "Разбивка по видам спорта",
+    "card.recent": "Последние settled ставки · 50",
+    "card.pulse": "Σ Pulse · live на каналах",
+    "card.stack": "Multi-sport Elo · 9 спортов",
+    "card.how": "Как это работает · 3 минуты чтения",
+    "disclosure": "<strong>Методология.</strong> Fair line = median(Pinnacle, Betfair Exchange, Matchbook) с margin removal. Сигнал генерируется при <code>EV ∈ [3%, 40%]</code> и <code>k ∈ [1.30, 3.00]</code>. Sizing: <code>¼ Kelly</code>, cap <code>1.5%</code> банка.<br><br><strong>Что значат цифры.</strong> <strong>CLV</strong> (closing line value) — насколько коэф на момент ставки выше закрывающего Pinnacle. Главная метрика: <code>CLV &gt; +3%</code> → стратегия бьёт рынок.<br><br><strong>Что НЕ значат цифры.</strong> Это исследовательский paper-trading, не инвестиционный совет. Реальные деньги пойдут только после <code>200+ ставок с CLV &gt; +5%</code> на дистанции."
+  },
+  en: {
+    "brand.tagline": "Quant-driven cross-sport value betting · public track record",
+    "page.title": "Public Track Record",
+    "page.subtitle": "Transparent paper-trading log. All bets are published with a <strong>24h</strong> delay after settlement to avoid leaking active signals.",
+    "kpi.settled": "Settled bets",
+    "kpi.settled_sub": "paper + shadow",
+    "kpi.clv": "Avg CLV",
+    "kpi.roi": "ROI per stake",
+    "kpi.wr": "Win rate",
+    "kpi.posclv": "Positive CLV rate",
+    "kpi.posclv_sub": "value-detection accuracy",
+    "kpi.bank": "Bank growth",
+    "kpi.bank_sub": "unit-stake compounding",
+    "card.equity": "Equity curve · cumulative P/L (₽)",
+    "card.monthly": "Monthly ROI",
+    "card.sport": "Sport breakdown",
+    "card.recent": "Recent settled bets · last 50",
+    "card.pulse": "Σ Pulse · live across channels",
+    "card.stack": "Multi-sport Elo stack · 9 sports validated",
+    "card.how": "How it works · 3 min read",
+    "disclosure": "<strong>Methodology.</strong> Fair line = median(Pinnacle, Betfair Exchange, Matchbook) with margin removal. Signal triggers when <code>EV ∈ [3%, 40%]</code> and <code>k ∈ [1.30, 3.00]</code>. Sizing: <code>¼ Kelly</code>, cap <code>1.5%</code> of bank.<br><br><strong>What the numbers mean.</strong> <strong>CLV</strong> (closing line value) measures how much the odds taken exceeded Pinnacle closing. Key metric: <code>CLV &gt; +3%</code> means strategy beats the market.<br><br><strong>What the numbers DON'T mean.</strong> Research paper-trading log, not investment advice. Real money goes live only after <code>200+ bets with CLV &gt; +5%</code> on distance."
+  }
+};
+function applyLang(lang) {
+  if (!I18N[lang]) lang = "ru";
+  document.documentElement.setAttribute("lang", lang);
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    const val = I18N[lang][key];
+    if (val === undefined) return;
+    if (el.getAttribute("data-i18n-html") === "1") el.innerHTML = val;
+    else el.textContent = val;
+  });
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+  });
+  try { localStorage.setItem("vs-lang", lang); } catch (_) {}
+}
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => applyLang(btn.getAttribute("data-lang")));
+});
+let initLang = "ru";
+try {
+  const stored = localStorage.getItem("vs-lang");
+  if (stored && I18N[stored]) initLang = stored;
+  else if ((navigator.language || "").toLowerCase().startsWith("en")) initLang = "en";
+} catch (_) {}
+applyLang(initLang);
 </script>
 </body>
 </html>
