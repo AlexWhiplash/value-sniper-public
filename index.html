@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0F0A1F">
-<meta name="description" content="Quant value-betting. 4 settled bets · CLV +35.92% · ROI +20.38% · WR 25.0%. Median sharps + EV+ filter + ¼ Kelly. 24h-delayed transparency.">
+<meta name="description" content="Quant value-betting. 6 settled bets · CLV +16.02% · ROI -7.50% · WR 16.7%. Median sharps + EV+ filter + ¼ Kelly. 24h-delayed transparency.">
 <title>Σ Value Sniper — Public Track Record</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://alexwhiplash.github.io/value-sniper-public/">
 <meta property="og:site_name" content="Σ Value Sniper">
 <meta property="og:title" content="Σ Value Sniper — Public Track Record">
-<meta property="og:description" content="Quant value-betting. 4 settled bets · CLV +35.92% · ROI +20.38% · WR 25.0%. Median sharps + EV+ filter + ¼ Kelly. 24h-delayed transparency.">
+<meta property="og:description" content="Quant value-betting. 6 settled bets · CLV +16.02% · ROI -7.50% · WR 16.7%. Median sharps + EV+ filter + ¼ Kelly. 24h-delayed transparency.">
 <meta property="og:image" content="https://alexwhiplash.github.io/value-sniper-public/assets/og-image.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
@@ -26,7 +26,7 @@
 <meta name="twitter:site" content="@xgears3x3x">
 <meta name="twitter:creator" content="@xgears3x3x">
 <meta name="twitter:title" content="Σ Value Sniper — Public Track Record">
-<meta name="twitter:description" content="Quant value-betting. 4 settled bets · CLV +35.92% · ROI +20.38% · WR 25.0%. Median sharps + EV+ filter + ¼ Kelly. 24h-delayed transparency.">
+<meta name="twitter:description" content="Quant value-betting. 6 settled bets · CLV +16.02% · ROI -7.50% · WR 16.7%. Median sharps + EV+ filter + ¼ Kelly. 24h-delayed transparency.">
 <meta name="twitter:image" content="https://alexwhiplash.github.io/value-sniper-public/assets/og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,12 +147,12 @@ footer a:hover { text-decoration: underline; }
 <p class="subtitle" data-i18n="page.subtitle" data-i18n-html="1">Прозрачный лог paper-trading сигналов. Все ставки публикуются с задержкой <strong>24h</strong> после settlement, чтобы не утечь активные сигналы.</p>
 
 <div class="kpi-grid">
-  <div class="kpi"><div class="kpi-label" data-i18n="kpi.settled">Settled bets</div><div class="kpi-value">4</div><div class="kpi-sub" data-i18n="kpi.settled_sub">paper + shadow</div></div>
-  <div class="kpi"><div class="kpi-label" data-i18n="kpi.clv">Avg CLV</div><div class="kpi-value pos">+35.92%</div><div class="kpi-sub">✓ above stop</div></div>
-  <div class="kpi"><div class="kpi-label" data-i18n="kpi.roi">ROI per stake</div><div class="kpi-value pos">+20.38%</div><div class="kpi-sub">P/L: +91 ₽</div></div>
-  <div class="kpi"><div class="kpi-label" data-i18n="kpi.wr">Win rate</div><div class="kpi-value">25.0%</div><div class="kpi-sub">1 wins / 4 bets</div></div>
+  <div class="kpi"><div class="kpi-label" data-i18n="kpi.settled">Settled bets</div><div class="kpi-value">6</div><div class="kpi-sub" data-i18n="kpi.settled_sub">paper + shadow</div></div>
+  <div class="kpi"><div class="kpi-label" data-i18n="kpi.clv">Avg CLV</div><div class="kpi-value pos">+16.02%</div><div class="kpi-sub">✓ above stop</div></div>
+  <div class="kpi"><div class="kpi-label" data-i18n="kpi.roi">ROI per stake</div><div class="kpi-value neg">-7.50%</div><div class="kpi-sub">P/L: -44 ₽</div></div>
+  <div class="kpi"><div class="kpi-label" data-i18n="kpi.wr">Win rate</div><div class="kpi-value">16.7%</div><div class="kpi-sub">1 wins / 6 bets</div></div>
   <div class="kpi"><div class="kpi-label" data-i18n="kpi.posclv">Positive CLV rate</div><div class="kpi-value">100.0%</div><div class="kpi-sub" data-i18n="kpi.posclv_sub">value-detection accuracy</div></div>
-  <div class="kpi"><div class="kpi-label" data-i18n="kpi.bank">Bank growth</div><div class="kpi-value">1.000 → 1.204</div><div class="kpi-sub" data-i18n="kpi.bank_sub">unit stake compounding</div></div>
+  <div class="kpi"><div class="kpi-label" data-i18n="kpi.bank">Bank growth</div><div class="kpi-value">1.000 → 0.925</div><div class="kpi-sub" data-i18n="kpi.bank_sub">unit stake compounding</div></div>
 </div>
 
 <div class="card"><h2 data-i18n="card.equity">Equity curve · cumulative P/L (₽)</h2><div class="chart-wrap"><canvas id="equityChart"></canvas></div></div>
@@ -161,11 +161,14 @@ footer a:hover { text-decoration: underline; }
 <thead><tr><th>Sport</th><th>n</th><th>WR</th><th>ROI</th><th>avg CLV</th></tr></thead>
 <tbody>
 <tr><td>🎾 WTA Tennis</td><td>3</td><td>0.0%</td><td class="neg">-100.00%</td><td class="pos">—</td></tr>
+<tr><td>⚽ English Premier League</td><td>2</td><td>0.0%</td><td class="neg">-100.00%</td><td class="pos">+6.07%</td></tr>
 <tr><td>🎾 ATP Tennis</td><td>1</td><td>100.0%</td><td class="pos">+93.00%</td><td class="pos">+35.92%</td></tr>
 </tbody></table></div></div>
 <div class="card"><h2 data-i18n="card.recent" data-i18n-html="1">Recent settled bets · last 50</h2><div class="scroll-x"><table>
 <thead><tr><th>Date</th><th></th><th>Event</th><th>Side</th><th>Odds</th><th>CLV</th><th>·</th></tr></thead>
 <tbody>
+<tr><td class="muted small">2026-04-30</td><td>⚽</td><td class="event">Atlético Madrid vs Arsenal</td><td>AWAY</td><td class="mono">2.50</td><td class="mono pos">+8.23%</td><td class="badge neg">L</td></tr>
+<tr><td class="muted small">2026-04-30</td><td>⚽</td><td class="event">Atlético Madrid vs Arsenal</td><td>AWAY</td><td class="mono">2.40</td><td class="mono pos">+3.90%</td><td class="badge neg">L</td></tr>
 <tr><td class="muted small">2026-04-29</td><td>🎾</td><td class="event">Leylah Fernandez vs Mirra Andreeva</td><td>HOME</td><td class="mono">2.90</td><td class="mono pos">—</td><td class="badge neg">L</td></tr>
 <tr><td class="muted small">2026-04-29</td><td>🎾</td><td class="event">Leylah Fernandez vs Mirra Andreeva</td><td>HOME</td><td class="mono">2.81</td><td class="mono pos">—</td><td class="badge neg">L</td></tr>
 <tr><td class="muted small">2026-04-29</td><td>🎾</td><td class="event">Leylah Fernandez vs Mirra Andreeva</td><td>HOME</td><td class="mono">2.85</td><td class="mono pos">—</td><td class="badge neg">L</td></tr>
@@ -248,7 +251,7 @@ footer a:hover { text-decoration: underline; }
 </div>
 
 <footer>
-  Σ Value Sniper · last update <span class="mono">2026-05-01 18:45 UTC</span>
+  Σ Value Sniper · last update <span class="mono">2026-05-02 00:45 UTC</span>
   · <a href="https://github.com/AlexWhiplash/value-sniper-public">github</a>
   · <a href="https://t.me/value_sniper_research">@value_sniper_research</a>
   · solo research by Александр (<a href="https://twitter.com/xgears3x3x">@xgears3x3x</a>)
@@ -256,8 +259,8 @@ footer a:hover { text-decoration: underline; }
 </div>
 
 <script>
-const equityData = [{"x": "2026-04-27", "y": 260.4}, {"x": "2026-04-29", "y": 193.66}, {"x": "2026-04-29", "y": 147.21}, {"x": "2026-04-29", "y": 91.5}];
-const monthlyData = [{"month": "2026-04", "roi": 20.38, "n": 4}];
+const equityData = [{"x": "2026-04-27", "y": 260.4}, {"x": "2026-04-29", "y": 193.66}, {"x": "2026-04-29", "y": 147.21}, {"x": "2026-04-29", "y": 91.5}, {"x": "2026-04-30", "y": 16.5}, {"x": "2026-04-30", "y": -43.83}];
+const monthlyData = [{"month": "2026-04", "roi": -7.5, "n": 6}];
 const baseGrid = '#2D2547';
 const baseText = '#94A3B8';
 
